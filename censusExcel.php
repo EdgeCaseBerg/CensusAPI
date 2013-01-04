@@ -38,9 +38,10 @@ $excel->getActiveSheet()->getStyle('A1:E1')->getFill()->getStartColor()->setARGB
 $excel->getActiveSheet()->getStyle('B1')->getAlignment()->setTextRotation(90);
 
 //Set the widths of the header columns
-foreach (array('A','B','C','D','E') as $letter) {
+foreach (array('A','C','D','E') as $letter) {
 	$excel->getActiveSheet()->getColumnDimension($letter)->setAutoSize(true);	
 }
+$excel->getActiveSheet()->getColumnDimension("B")->setWidth(4);
 
 //Set the height of the headers to be kinda big
 $excel->getActiveSheet()->getRowDimension(1)->setRowHeight(80);
