@@ -102,6 +102,17 @@ function fillCell($cellindex,$val)
 	$_SESSION['sheet']->setCellValue($cellindex, $val);
 }
 
+//Create a helper function to fill a whole row
+function fillRow($rowNum,$vals){
+	$i = 0;
+	$len = count($vals);
+	foreach(array('A','B','C','D','E') as $col){
+		if($i < $len){
+			fillCell($col . $rowNum, $vals[$i]);	
+		}
+		$i++; 	
+	}
+}
 //This is going to get long very fast
 fillCell('A3',"Total Population");
 fillCell('B3',"popn");
@@ -117,7 +128,8 @@ fillCell('C16',"B25014");
 fillCell('A17',"..with 1.01 or more people per room");
 fillCell('B17',"crom");
 fillCell('C17',"B25014");
-$API->setTable('B25014A_002E,B25014A_003E,B25014C_003E,B25014D_003E,B25014E_003E,B25014F_003E');
+//Construct Query
+$API->setTable('B25014I_003E,B25014A_002E,B25014A_003E,B25014H_003E,B25014C_003E,B25014D_003E,B25014E_003E,B25014F_003E,B25014G_003E');
 $API->constructQuery();
 $result = $API->runQuery();
 $computedValue = 0;
@@ -127,7 +139,8 @@ for($i=0; $i <  count($result[1])-1; $i++) {
 fillCell('D17',$computedValue);
 fillCell('E17',$API->getQuery());
 
-
+//Row 18
+fillRow(18,array('Renter-Occupied Units','crro','B25014'));
 
 
 //save
