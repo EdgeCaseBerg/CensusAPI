@@ -175,6 +175,114 @@ fillRow(20,array("..with 1.01 or more people per room","crom",'B25014'));
 //Row 21
 fillRow(21,array('Year Householder Moved Into Unit'));
 
+//Row22
+fillRow(22,array('...For Owner-Occupied Units'));
+
+//Row23
+fillRow(23,array('   ...2005 or later','ymo5','B25038'));
+
+//Row24
+fillRow(24,array('   ...2000 to 2004','ymo4','B25038'));
+
+//Row25
+fillRow(25,array('   ...1990 to March 2000','ymo9','B25038'));
+
+//Row26
+fillRow(26,array('   ...1980 to 1989','ymo8','B25038'));
+
+//Row27
+fillRow(27,array('   ...1970 to 1980','ymo7','B25038'));
+
+//Row28
+fillRow(28,array('   ...1969 or Earlier','ymo6','B25038'));
+
+//Row29
+fillRow(29,array('...For Renter-Occupied Units:'));
+
+//Row30
+fillRow(30,array('   ...2005 or later','ymr5','B25038'));
+
+//Row31
+fillRow(31,array('   ...2000 to 2004','ymr4','B25038'));
+
+//Row32
+fillRow(32,array('   ...1990 to March 2000','ymr9',	'B25038'));
+
+//Row33
+fillRow(33,array('   ...1980 to 1989','ymr8','B25038'));
+
+//Row34
+fillRow(34,array( '   ...1970 to 1979','ymr7','B25038'));
+
+//Row35
+fillRow(35,array('   ...1969 or Earlier','ymr6','B25038'));
+
+//Row36
+fillRow(36,array('Median Year Householder Moved Into Unit'));
+
+//Row37
+fillRow(37,array('...for all Occupied Units','myma','B25039'));
+
+//Row38
+fillRow(38,array('   ...Owner-Occupied','mymo','B25039'));
+
+//Row39
+fillRow(39,array('   ...Renter-Occupied','mymr','B25039'));
+
+//Row40
+fillRow(40,array('Total workers 16 years of age and over','woto'));
+
+//Row41
+fillRow(41,array('... working outside town or city of residence ','wotn','B08009'));
+
+//Row42
+fillRow(42,array('... working outside county of residence','woco','B08007'));
+
+//Row43
+fillRow(43,array('... working outside Vermont','wost','B08007'));
+
+//Row44 Header for ability to afford
+$sheet->setCellValue('A44',"Ability to Afford");
+$sheet->getStyle('A44:E44')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+$sheet->getStyle('A44:E44')->getFill()->getStartColor()->setARGB('FFF79646');
+$sheet->getStyle("A44:E44")->applyFromArray(array("font" => array( "bold" => true)));
+
+//Row45
+fillCell('A45','Housing Wage');
+
+//Row46
+fillRow(46,array('... 0 bedroom unit','hwa0'));
+
+//Row47
+fillRow(47,array('... 1 bedroom unit','hwa1'));
+
+//Row48
+fillRow(48,array('... 2 bedroom unit','hwa2'));
+
+//Row49
+fillRow(49,array('... 3 bedroom unit','hwa3'));
+
+//Row50
+fillRow(50,array('... 4 bedroom unit','hwa4'));
+
+//Row51
+fillRow(51,array('housing wage as a percentage of the state minimum wage'));
+
+//Row52
+fillRow(52,array('... 0 bedroom unit','hwp0'));
+
+//Row53
+fillRow(53,array('... 1 bedroom unit','hwp1'));
+
+//Row54
+fillRow(54,array('... 2 bedroom unit','hwp2'));
+
+//Row55
+fillRow(55,array('... 3 bedroom unit','hwp3'));
+
+//Row56
+fillRow(56,array('... 4 bedroom unit','hwp4'));
+
 
 
 
