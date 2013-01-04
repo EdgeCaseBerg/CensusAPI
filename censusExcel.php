@@ -108,10 +108,26 @@ fillCell('B3',"popn");
 
 //When we figure out what data to use for rows 3-17 I'll come back
 
+//Row16
+fillCell('A16',"Owner-Occupied Units");
+fillCell('B16',"croo");
+fillCell('C16',"B25014");
 
+//Row17
+fillCell('A17',"..with 1.01 or more people per room");
+fillCell('B17',"crom");
+fillCell('C17',"B25014");
+$API->setTable('B25014A_002E,B25014A_003E,B25014C_003E,B25014D_003E,B25014E_003E,B25014F_003E');
+$API->constructQuery();
 $result = $API->runQuery();
+$computedValue = 0;
+for($i=0; $i <  count($result[1])-1; $i++) {
+	$computedValue += $result[1][$i];
+}
+fillCell('D17',$computedValue);
+fillCell('E17',$API->getQuery());
 
-print_r($result);
+
 
 
 //save
