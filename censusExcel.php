@@ -114,21 +114,49 @@ function fillRow($rowNum,$vals){
 	}
 }
 //This is going to get long very fast
-fillCell('A3',"Total Population");
-fillCell('B3',"popn");
+fillCell('A4',"Total Population");
+fillCell('B4',"popn");
 
-//When we figure out what data to use for rows 3-17 I'll come back
+//Row5
+fillRow(5,array('... in occupied housing units','pocc'));
+
+//Row6
+fillRow(6,array('    ... owner occupied','pown'));
+
+//Row7
+fillRow(7,array('    ... renter occupied','pren'));
+
+//Row8
+fillRow(8,array('Total group quarters population','grou'));
+
+//Row9
+fillRow(9,array('Number of households','hhld'));
+
+//Row10
+fillRow(10,array('... owning home','thuo'));
+
+//Row11
+fillRow(11,array('... renting home','thur'));
+
+//Row12
+fillRow(12,array('... number of families','fams'));
+
+//Row13
+fillRow(13,array('Average household size','ahhs'));
+
+//Row14
+fillRow(14,array('... in owner occupied housing units','hhso'));
+
+//Row15
+fillRow(15,array('... in renter occupied housing units','hhsr'));
 
 //Row16
-fillCell('A16',"Owner-Occupied Units");
-fillCell('B16',"croo");
-fillCell('C16',"B25014");
+fillRow(16,array('Average family size','afas'));
 
 //Row17
-fillCell('A17',"..with 1.01 or more people per room");
-fillCell('B17',"crom");
-fillCell('C17',"B25014");
-//Construct Query
+fillRow(17,array("Owner-Occupied Units","croo","B25014"));
+
+//Row18
 $API->setTable('B25014I_003E,B25014A_002E,B25014A_003E,B25014H_003E,B25014C_003E,B25014D_003E,B25014E_003E,B25014F_003E,B25014G_003E');
 $API->constructQuery();
 $result = $API->runQuery();
@@ -136,11 +164,18 @@ $computedValue = 0;
 for($i=0; $i <  count($result[1])-1; $i++) {
 	$computedValue += $result[1][$i];
 }
-fillCell('D17',$computedValue);
-fillCell('E17',$API->getQuery());
+fillRow(18,array("..with 1.01 or more people per room","crom",'B25014',$computedValue,$API->getQuery()));
 
-//Row 18
-fillRow(18,array('Renter-Occupied Units','crro','B25014'));
+//Row 19
+fillRow(19,array('Renter-Occupied Units','crro','B25014'));
+
+//Row 20
+fillRow(20,array("..with 1.01 or more people per room","crom",'B25014'));
+
+//Row 21
+fillRow(21,array('Year Householder Moved Into Unit'));
+
+
 
 
 //save
