@@ -283,6 +283,29 @@ fillRow(55,array('... 3 bedroom unit','hwp3'));
 //Row56
 fillRow(56,array('... 4 bedroom unit','hwp4'));
 
+//Row57
+fillRow(57,array('Income needed to afford an apartmnet at HUD\'s FMR'));
+
+//Row58
+fillRow(58,array('... 0 bedroom unit','ina0'));
+
+//Row59
+fillRow(59,array('... 1 bedroom unit','ina1'));
+
+//Row60
+fillRow(60,array('... 2 bedroom unit','ina2'));
+
+//Row61
+fillRow(61,array('... 3 bedroom unit','ina3'));
+
+//Row62
+fillRow(62,array('... 4 bedroom unit','ina4'));
+
+//Heading for ability to afford 2
+$sheet->setCellValue('A63',"Ability to Afford");
+$sheet->getStyle('A63:E63')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+$sheet->getStyle('A63:E63')->getFill()->getStartColor()->setARGB('FFF79646');
+$sheet->getStyle("A63:E63")->applyFromArray(array("font" => array( "bold" => true)));
 
 
 
