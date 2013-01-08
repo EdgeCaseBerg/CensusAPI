@@ -720,6 +720,82 @@ fillRow(192,array('Median gross rent (all units)','megr','B25064'));
 //Row193
 fillRow(193,array('   ...as a percentage of household income','mgrp','B25071'));
 
+//Row194
+fillRow(194,array('Specified housing units with gross rent (total)','hugr','B25603'));
+
+//Row195
+fillRow(195,array('... at or above 30% of household income','mgra','B25070'));
+
+//Row196
+fillRow(196,array('... at or above 50% of household income','mgrc','B25070'));
+
+//Row197
+fillRow(197,array('Fair Market Rent (HUD)'));
+
+//Row198
+fillRow(198,array('...0 bedroom unit (40%)','fmr0'));
+
+//Row199
+fillRow(199,array('...1 bedroom unit (40%)','fmr1'));
+
+///Row200
+fillRow(200,array('...2 bedroom unit (40%)','fmr2'));
+
+//Row201
+fillRow(201,array('...3 bedroom unit (40%)','fmr3'));
+
+//Row202
+fillRow(202,array('...4 bedroom unit (40%)','fmr4'));
+
+//Row203
+fillRow(203,array('Median rents (HUD)'));
+
+//Row204
+fillRow(204,array('...0 bedroom unit (50%) - Median Rent','mer0'));
+
+//Row205
+fillRow(205,array('...1 bedroom unit (50%) - Median Rent','mer1'));
+
+//Row206
+fillRow(206,array('...2 bedroom unit (50%) - Median Rent','mer2'));
+
+//Row207
+fillRow(207,array('...3 bedroom unit (50%) - Median Rent','mer3'));
+
+//Row208
+fillRow(208,array('...4 bedroom unit (50%) - Median Rent','mer4'));
+
+//Header for special needs
+$sheet->setCellValue('A209',"Special Needs");
+$sheet->getStyle('A209:E209')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+$sheet->getStyle('A209:E209')->getFill()->getStartColor()->setARGB('FFF79646');
+$sheet->getStyle("A209:E209")->applyFromArray(array("font" => array( "bold" => true)));
+
+//Row210
+fillRow(210,array('Supplemental security income recips','ssit'));
+
+//Row211
+fillRow(211,array('...younger than age 18','ssa1'));
+
+//Row212
+fillRow(212,array('...aged 16-64','ssa2'));
+
+//Row213
+fillRow(213,array('...aged 65 and older','ssa3'));
+
+//Row214
+fillRow(214,array('Monthly SSI payments in Vermont','sspt'));
+
+//Row215
+fillRow(215,array('...amount available for housing','ssph'));
+
+//Row216
+fillRow(216,array('... % income needed for efficiency','sspe'));
+
+//Row217
+fillRow(217,array('... % income needed for 1-bedroom','ssp1'));
+
+
 //save
 $objWriter = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
 $objWriter->save(str_replace('.php', '.xlsx', __FILE__));
