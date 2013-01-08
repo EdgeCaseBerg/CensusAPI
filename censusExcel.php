@@ -525,15 +525,7 @@ fillCell('A135','	Homeownership costs (hoCosts1 (pink), hoCosts2 (orange), hoCos
 $sheet->getStyle('A83:E83')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
 $sheet->getStyle('A83:E83')->getFill()->getStartColor()->setARGB('FFFFC000');
 
-//TODO 
-//     color the cells 136-138,140-142,144-146 FF99CC
-//     color the cell 139,143,147 FFCC99
-//     color the cells 148-150,152-154,156-158 FFFF99
-//     color the cells 151,155,159 CCFFCC
-//     color the cells 161-163 FFCC99
-//     color the cells 165-167 CCFFCC
-
-//Apply some styling to the cells for home ownership
+//Apply some styling to the cells for home ownership color coded area
 $sheet->getStyle('A136:E167')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
 $sheet->getStyle('A136:E138')->getFill()->getStartColor()->setARGB('FFFF99CC');
 $sheet->getStyle('A140:E142')->getFill()->getStartColor()->setARGB('FFFF99CC');
@@ -566,11 +558,100 @@ fillRow(139,array('... mobile homes with land','nmhl'));
 //Row140
 fillRow(140,array('Average Price of residences sold','aphs'));
 
-//Row149
+//Row141
 fillRow(141,array('... single family homes','asfs'));
 
+//Row142
+fillRow(142,array('... condominiums','acon'));
+
+//Row143
+fillRow(143,array('... mobile homes with land','amhl'));
+
+//Row144
+fillRow(144,array('Median price of primary residences sold','mphs'));
+
+//Row145
+fillRow(145,array('... single family homes','msfs'));
+
+//Row146
+fillRow(146,array('... condominiums','mcon'));
+
+//Row147
+fillRow(147,array('... mobile homes with land','mmhl'));
+
+//Row148
+fillRow(148,array('Number of vacation residences sold','nvac'));
+
+//Row149
+fillRow(149,array('... single family vacation homes','nvsf'));
+
 //Row150
-fillRow(142,array(''));
+fillRow(150,array('... vacation condominiums','nvcn'));
+
+//Row151
+fillRow(151,array('... mobile homes with land','nvml'));
+
+//Row152
+fillRow(152,array('Average price of vacation residences sol','avac'));
+
+//Row153
+fillRow(153,array('... single family vacation homes','avsf'));
+
+//Row154
+fillRow(154,array('... vacation condominiums','avcn'));
+
+//Row155
+fillRow(155,array('... mobile homes with land','avml'));
+
+//Row156
+fillRow(156,array('Median price of vacation residences sold','mvac'));
+
+//Row157
+fillRow(157,array('... single family vacation homes','mvsf'));
+
+//Row158
+fillRow(158,array('... vacation condominiums','mvcn'));
+
+//Row159
+fillRow(159,array('... mobile homes with land','mvml'));
+
+//Row160
+fillRow(160,array('Primary residence mobile homes sold without land'));
+
+//Row161
+fillRow(161,array('   ... number of sales','nmho'));
+
+//Row162
+fillRow(162,array('   ... average price','amho'));
+
+//Row163
+fillRow(163,array('   ... median price','mmho'));
+
+//Row164
+fillRow(164,array('Vacation residence mobile homes sold without land'));
+
+//Row165
+fillRow(165,array('   ... number of sales','nvmo'));
+
+//Row166
+fillRow(166,array('   ... average price','avmo'));
+
+//Row167
+fillRow(167,array('   ... median price','mvmo'));
+
+//Header for Ho Costs 5
+$sheet->setCellValue('A168',"HO Costs 5");
+$sheet->getStyle('A168:E168')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+$sheet->getStyle('A168:E168')->getFill()->getStartColor()->setARGB('FFF79646');
+$sheet->getStyle("A168:E168")->applyFromArray(array("font" => array( "bold" => true)));
+
+//Row169
+fillRow(168,array('Median monthly owner costs','octo','B25088'));
+
+//Row170
+fillRow(170,array('... with mortage','ocwi','B25088'));
+
+
 
 
 
