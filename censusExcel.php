@@ -651,9 +651,74 @@ fillRow(168,array('Median monthly owner costs','octo','B25088'));
 //Row170
 fillRow(170,array('... with mortage','ocwi','B25088'));
 
+//Row171
+fillRow(171,array('... without mortage','ocwo','B25088'));
 
+//Row172
+fillRow(172,array('... as percentage of household income','ochi','B25092'));
 
+//Row173
+fillRow(173,array('Owner-Occupied housing units','sphu','B25003'));
 
+//Row174
+fillRow(174,array('... at or above 30% of household income','oca3','B25091'));
+
+//Row175
+fillRow(175,array('... at or above 50% of household income','oca5','B25091'));
+
+//Row176
+fillRow(176,array('... with a mortage','Ocmt','B25091'));
+
+//Row177
+fillRow(177,array('   ... with owner costs at or above 30% of household income','Ocm3','B25091'));
+
+//Row178
+fillRow(178,array('   ... with owner costs at or above 50% of household income','Ocm5','B25091'));
+
+//Row179
+fillRow(179,array('... without a mortage','Ocnt','B25091'));
+
+//Row180
+fillRow(180,array('   ... with owner costs at or above 30% of household income','Ocn3','B25091'));
+
+//Row181
+fillRow(181,array('   ... with owner costs at or above 50% of household income','Ocn5','B25091'));
+
+//Row182
+fillRow(182,array('Median value of owner occupied housing units','mvho'));
+
+//Row183
+fillRow(183,array('Municipal Tax Rate','mutr'));
+
+//Row184
+fillRow(184,array('Educational Tax Rate for Homesteads','eths'));
+
+//Row185
+fillRow(185,array('Educational Tax Rate for Non-Residential','etnr'));
+
+//Row186
+fillRow(186,array('Common Level of Appraisal Ratio','clar'));
+
+//Row187
+fillRow(187,array('Number of primary residences sold (YTD)','ytdn'));
+
+//Row188
+fillRow(188,array('Median price of primary residences sold (YTD)','ytdm'));
+
+//Row189
+fillRow(189,array('Average price of primary residences sold (YTD)','tyda'));
+
+//Header for Rental housing costs
+$sheet->setCellValue('A191',"Rental Housing Costs");
+$sheet->getStyle('A191:E191')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+$sheet->getStyle('A191:E191')->getFill()->getStartColor()->setARGB('FFF79646');
+$sheet->getStyle("A191:E191")->applyFromArray(array("font" => array( "bold" => true)));
+
+//Row192
+fillRow(192,array('Median gross rent (all units)','megr','B25064'));
+
+//Row193
+fillRow(193,array('   ...as a percentage of household income','mgrp','B25071'));
 
 //save
 $objWriter = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
