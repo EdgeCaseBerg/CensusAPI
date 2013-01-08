@@ -307,6 +307,271 @@ $sheet->getStyle('A63:E63')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SO
 $sheet->getStyle('A63:E63')->getFill()->getStartColor()->setARGB('FFF79646');
 $sheet->getStyle("A63:E63")->applyFromArray(array("font" => array( "bold" => true)));
 
+//Row64
+fillRow(64,array('Median household income (Census)','hhai','B19013;'));
+
+//Row65
+fillRow(65,array('...homeowner households','hhio','B25119'));
+
+//Row66
+fillRow(66,array('...renter households','hhir','B25119' ));
+
+//Row67
+fillRow(67,array('Median family income (Census)','fmai','B19019'));
+
+//Row68
+fillRow(68,array('...for 2-person families','fmi2','B19019'));
+
+//Row69
+fillRow(69,array('...for 3-person families','fmi3','B19019'));
+
+//Row70
+fillRow(70,array('...for 4-person families','fmi4','B19019'));
+
+//Row71
+fillRow(71,array('...for 5-person families','fmi5','B19019'));
+
+//Row72
+fillRow(72,array('...for 6-person families','fmi6','B19019'));
+
+//Row73
+fillRow(73,array('...for 7-person families','fmi7','B19019'));
+
+//Row74
+fillRow(74,array('Median household income for family of four(HUD)','mf4i','B19019'));
+
+//Row75
+fillRow(75,array('Median family adjusted gross income','agif'));
+
+//Row76
+fillRow(76,array('Annual average wage(VT DET)'));
+
+//Row77
+fillRow(77,array('Per capita income (Census)','prci','B19301'));
+
+//Row78
+fillRow(78,array('Labor Force (VT DET)','lafo'));
+
+//Row79
+fillRow(79,array('...employed','aemp'));
+
+//Row80
+fillRow(80,array('...unemployed','uemp'));
+
+//Row81
+fillRow(81,array('...unemployment rate','uemr' ));
+
+//Row83 is a header row
+$sheet->setCellValue('A83',"Housing Stock");
+$sheet->getStyle('A83:E83')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+$sheet->getStyle('A83:E83')->getFill()->getStartColor()->setARGB('FFF79646');
+$sheet->getStyle("A83:E83")->applyFromArray(array("font" => array( "bold" => true)));
+
+//Row84
+fillRow(84,'Total housing units','tohu');
+
+//Row85
+fillRow(85,array('...owner occupied'));
+
+//Row86
+fillRow(86,array('...renter occupied','thur'));
+
+//Row87
+fillRow(87,array('...vacant housing units','vahu'));
+
+//Row88
+fillRow(88,array('   ...for seasonal, recreational, occasional use','vhse'));
+
+//Row89
+fillRow(89,array('   ...for rent','vhre'));
+
+//Row90
+fillRow(90,array('   ...for sale only','vhsa'));
+
+//Row91
+fillRow(91,array('Housing by Units in Structure'));
+
+//Row92
+fillRow(92,array('...All Housing Units','ustt','B25024'));
+
+//Row93
+fillRow(93,array('   ...in Buildings with 1 Unit','ust1','B25024'));
+
+//Row94
+fillRow(94,array('   ...in Buildings with 2 Units','ust2','B25024'));
+
+//Row95
+fillRow(95,array('   ...in Buildings with 3+ Units','ust3','B25024'));
+
+//Row96
+fillRow(96,array('   ...that Are Mobile Homes','ustm','B25024'));
+
+//Row97
+fillRow(97,array('   ...that Are Boats, RVs, Vans or Other','usto','B25024'));
+
+//Row98
+fillRow(98,array('...Owner-Occupied Housing Units','usot','B25032'));
+
+//Row99
+fillRow(99,array('   ...in Buildings with 1 Unit','uso1','B25032'));
+
+//Row100
+fillRow(100,array('   ...in Buildings with 2 Units','uso2','B25032'));
+
+//Row101
+fillRow(101,array('   ...in Buildings with 3+ Units','uso3','B25032'));
+
+//Row102
+fillRow(102,array('   ...that Are Mobile Homes','usom','B25032'));
+
+//Row103
+fillRow(103,array('   ...that Are Boats, RVs, Vans or Other','usoo','B25032'));
+
+//Row104
+fillRow(104,array('...Renter-Occupied Housing Units','usrt','B25032'));
+
+//Row105
+fillRow(105,array('   ...in Buildings with 1 Unit','usr1','B25032'));
+
+//Row106
+fillRow(106,array('   ...in Buildings with 2 Units','usr2','B25032'));
+
+//Row107
+fillRow(107,array('   ...in Buildings with 3+ Units','usr3','B25032'));
+
+//Row108
+fillRow(108,array('   ...that are Mobile Homes','usrm','B25032'));
+
+//Row109
+fillRow(109,array('   ...that are Boats, RVs, Vans or Other','usro','B25032'));
+
+//Row110
+fillRow(110,array('Building permits estimated (total units)','bupe'));
+
+//Row111
+fillRow(111,array('...single family unit permits reported','bpsf'));
+
+//Row112
+fillRow(112,array('...multifamily unit permits reported','bpmf'));
+
+//Row113
+fillRow(113,array('Home heating fuel','','B25040'));
+
+//Row114
+fillRow(114,array('...All Occupied Housing Units','ftot','B25040'));
+
+//Row115
+fillRow(115,array('   ...gas','futg','B25040'));
+
+//Row116
+fillRow(116,array('   ...electric','fute','B25040'));
+
+//Row117
+fillRow(117,array('   ...fuel oil, kerosene','futo','B25040'));
+
+//Row118
+fillRow(118,array('   ...wood','fuow','B25040'));
+
+//Row119
+fillRow(119,array('   ...all other fuels','futt','B25040'));
+
+//Row120
+fillRow(120,array('   ...no fuel used','futn','B25040'));
+
+//Row121
+fillRow(121,array('...Owner-Occupied Housing Units','','B25117'));
+
+//Row122
+fillRow(122,array('   ...gas','fuog','B25117'));
+
+//Row123
+fillRow(123,array('   ...electric','fuoe','B25117'));
+
+//Row124
+fillRow(124,array('   ...fuel, oil kerosene','fuoo','BB25117'));
+
+//Row125
+fillRow(125,array('   ...wood','fuow','B25117'));
+
+//RoW126
+fillRow(126,array('   ...all other fuels','fuot','B25117'));
+
+//Row127
+fillRow(127,array('   ...no fuel used','fuon','B25117'));
+
+//Row128
+fillRow(128,array('...Renter-Occupied Housing Units'));
+
+//Row129
+fillRow(129,array('   ...gas','furg','B25117'));
+
+//Row130
+fillRow(130,array('   ...electric','fure','B25117'));
+
+//Row131
+fillRow(131,array('   ...fuel, oil kerosene','furo','BB25117'));
+
+//Row132
+fillRow(132,array('   ...wood','furw','B25117'));
+
+//RoW133
+fillRow(133,array('   ...all other fuels','furt','B25117'));
+
+//Row134
+fillRow(134,array('   ...no fuel used','furn','B25117'));
+
+//Row135 
+fillCell('A135','	Homeownership costs (hoCosts1 (pink), hoCosts2 (orange), hoCosts3 (yellow), hoCosts4 (green))');
+$sheet->getStyle('A83:E83')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+$sheet->getStyle('A83:E83')->getFill()->getStartColor()->setARGB('FFFFC000');
+
+//TODO 
+//     color the cells 136-138,140-142,144-146 FF99CC
+//     color the cell 139,143,147 FFCC99
+//     color the cells 148-150,152-154,156-158 FFFF99
+//     color the cells 151,155,159 CCFFCC
+//     color the cells 161-163 FFCC99
+//     color the cells 165-167 CCFFCC
+
+//Apply some styling to the cells for home ownership
+$sheet->getStyle('A136:E167')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+$sheet->getStyle('A136:E138')->getFill()->getStartColor()->setARGB('FFFF99CC');
+$sheet->getStyle('A140:E142')->getFill()->getStartColor()->setARGB('FFFF99CC');
+$sheet->getStyle('A144:E146')->getFill()->getStartColor()->setARGB('FFFF99CC');
+$sheet->getStyle('A139:E139')->getFill()->getStartColor()->setARGB('FFFFCC99');
+$sheet->getStyle('A143:E143')->getFill()->getStartColor()->setARGB('FFFFCC99');
+$sheet->getStyle('A147:E147')->getFill()->getStartColor()->setARGB('FFFFCC99');
+$sheet->getStyle('A148:E150')->getFill()->getStartColor()->setARGB('FFFFFF99');
+$sheet->getStyle('A151:E154')->getFill()->getStartColor()->setARGB('FFFFFF99');
+$sheet->getStyle('A156:E158')->getFill()->getStartColor()->setARGB('FFFFFF99');
+$sheet->getStyle('A151:E151')->getFill()->getStartColor()->setARGB('FFCCFFCC');
+$sheet->getStyle('A155:E155')->getFill()->getStartColor()->setARGB('FFCCFFCC');
+$sheet->getStyle('A159:E159')->getFill()->getStartColor()->setARGB('FFCCFFCC');
+$sheet->getStyle('A161:E163')->getFill()->getStartColor()->setARGB('FFFFCC99');
+$sheet->getStyle('A165:E167')->getFill()->getStartColor()->setARGB('FFCCFFCC');
+
+
+//Row136
+fillRow(136,array('Number of primary residences sold','nphs'));
+
+//Row137
+fillRow(137,array('... single family homes','nsfs'));
+
+//Row138
+fillRow(138,array('... condominiums','ncon'));
+
+//Row139
+fillRow(139,array('... mobile homes with land','nmhl'));
+
+//Row140
+fillRow(140,array('Average Price of residences sold','aphs'));
+
+//Row149
+fillRow(141,array('... single family homes','asfs'));
+
+//Row150
+fillRow(142,array(''));
+
 
 
 //save
