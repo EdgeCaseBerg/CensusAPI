@@ -61,6 +61,8 @@ class APIInterface{
 	private $qBase = 'http://api.census.gov/data/';
 	//Actual Query
 	private $query = "";
+	//Whether or not we want a single county or not
+	private $searchByCounty = false;
 	
 	//Constants for tables:
 	// http://www.census.gov/developers/data/2010acs5_variables.xml
@@ -69,6 +71,12 @@ class APIInterface{
 	public function __construct(){
 		//Construct API query from defaults
 		$this->constructQuery();
+	}
+
+	public function setCounty($county = '*'){
+		$this->searchByCounty =	(strcmp($county,'*')==0) ? false : true;
+		$this->county = $county;
+		return $this;
 	}
 	
 	public function setYear($year = 2010){
@@ -98,7 +106,18 @@ class APIInterface{
 		
 		//Did we get something back?
 		if($result['http_code'] == '200'){
-			return (json_decode($result["content"]));
+			//We do not want the state or county included in our result because
+			//We do not want the county code if we're getting a county code.
+			$result =(json_decode($result["content"]));
+			if($this->searchByCounty){
+				foreach($result as $key => $value) {
+					//Key being each individual array
+					unset($value[count($value)-1]);
+					$result[$key] = array_values($value);
+				}
+				var_dump($result);
+			}
+			return $result;
 		}
 
 		return null;
@@ -107,7 +126,11 @@ class APIInterface{
 	
 	public function constructQuery(){
 		//Use the variables we've defined to perform out query.
-		$this->query = $this->qBase . $this->year .'/'. $this->survey .'?key='.$this->key.'&get='.$this->table.'&for=state:'.$this->stateNum.'&for=county:'.$this->county.'&for=town:'.$this->town;
+		if($this->searchByCounty){
+			$this->query = $this->qBase . $this->year .'/'. $this->survey .'?key='.$this->key.'&get='.$this->table.'&in=state:'.$this->stateNum.'&for=county:'.$this->county.'&for=town:'.$this->town;
+		}else{
+			$this->query = $this->qBase . $this->year .'/'. $this->survey .'?key='.$this->key.'&get='.$this->table.'&for=state:'.$this->stateNum.'&for=county:'.$this->county.'&for=town:'.$this->town;
+		}
 		return $this;
 	}
 	

@@ -91,6 +91,7 @@ $API->setSurvey('acs5')
 	->setTable('B25039_001E')
 	->setState('46') //46 is vermonts code
 	->setYear('2010')
+	
 	->constructQuery();
 
 
@@ -724,7 +725,16 @@ fillRow(193,array('   ...as a percentage of household income','mgrp','B25071'));
 fillRow(194,array('Specified housing units with gross rent (total)','hugr','B25603'));
 
 //Row195
-fillRow(195,array('... at or above 30% of household income','mgra','B25070'));
+$API->setTable('B25070_007E,B25070_008E,B25070_009E,B25070_010E,B25070_001E');
+$API->constructQuery();
+$result = $API->runQuery();
+$computedValue = 0;
+//-2, 1 for state, 1 for total
+var_dump($result);
+for($i=0; $i <  count($result[1])-2; $i++) {
+	$computedValue += $result[1][$i]/$result[1][count($result[1])-2];
+}
+fillRow(195,array('... at or above 30% of household income','mgra','B25070',$computedValue,$API->getQuery()));
 
 //Row196
 fillRow(196,array('... at or above 50% of household income','mgrc','B25070'));
@@ -770,6 +780,7 @@ $sheet->setCellValue('A209',"Special Needs");
 $sheet->getStyle('A209:E209')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
 $sheet->getStyle('A209:E209')->getFill()->getStartColor()->setARGB('FFF79646');
 $sheet->getStyle("A209:E209")->applyFromArray(array("font" => array( "bold" => true)));
+
 
 //Row210
 fillRow(210,array('Supplemental security income recips','ssit'));
