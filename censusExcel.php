@@ -38,9 +38,10 @@ $excel->getActiveSheet()->getStyle('A1:E1')->getFill()->getStartColor()->setARGB
 $excel->getActiveSheet()->getStyle('B1')->getAlignment()->setTextRotation(90);
 
 //Set the widths of the header columns
-foreach (array('A','C','D','E') as $letter) {
+foreach (array('C','D','E') as $letter) {
 	$excel->getActiveSheet()->getColumnDimension($letter)->setAutoSize(true);	
 }
+$excel->getActiveSheet()->getColumnDimension("A")->setWidth(40);
 $excel->getActiveSheet()->getColumnDimension("B")->setWidth(6);
 
 //Set the height of the headers to be kinda big (fit vertical text)
@@ -647,13 +648,25 @@ $sheet->getStyle('A168:E168')->getFill()->getStartColor()->setARGB('FFF79646');
 $sheet->getStyle("A168:E168")->applyFromArray(array("font" => array( "bold" => true)));
 
 //Row169
-fillRow(168,array('Median monthly owner costs','octo','B25088'));
+$API->setTable('B25088_001E');
+$API->constructQuery();
+$result = $API->runQuery();
+$computedValue = $result[1][0];
+fillRow(169,array('Median monthly owner costs','octo','B25088',$computedValue,$API->getQuery()));
 
 //Row170
-fillRow(170,array('... with mortage','ocwi','B25088'));
+$API->setTable('B25088_002E');
+$API->constructQuery();
+$result = $API->runQuery();
+$computedValue = $result[1][0];
+fillRow(170,array('... with mortage','ocwi','B25088',$computedValue,$API->getQuery()));
 
 //Row171
-fillRow(171,array('... without mortage','ocwo','B25088'));
+$API->setTable('B25088_003E');
+$API->constructQuery();
+$result = $API->runQuery();
+$computedValue = $result[1][0];
+fillRow(171,array('... without mortage','ocwo','B25088',$computedValue,$API->getQuery()));
 
 //Row172
 fillRow(172,array('... as percentage of household income','ochi','B25092'));
@@ -716,28 +729,40 @@ $sheet->getStyle('A191:E191')->getFill()->getStartColor()->setARGB('FFF79646');
 $sheet->getStyle("A191:E191")->applyFromArray(array("font" => array( "bold" => true)));
 
 //Row192
-fillRow(192,array('Median gross rent (all units)','megr','B25064'));
+$API->setTable('B25064_001E');
+$API->constructQuery();
+$result = $API->runQuery();
+$computedValue = $result[1][0];
+fillRow(192,array('Median gross rent (all units)','megr','B25064',$computedValue,$API->getQuery()));
 
 //Row193
-fillRow(193,array('   ...as a percentage of household income','mgrp','B25071'));
+$API->setTable('B25071_001E');
+$API->constructQuery();
+$result = $API->runQuery();
+$computedValue = $result[1][0];
+fillRow(193,array('   ...as a percentage of household income','mgrp','B25071',$computedValue,$API->getQuery()));
 
 //Row194
-fillRow(194,array('Specified housing units with gross rent (total)','hugr','B25603'));
+fillRow(194,array('Specified housing units with gross rent (total)','hugr','B25063'));
 
 //Row195
 $API->setTable('B25070_007E,B25070_008E,B25070_009E,B25070_010E,B25070_001E');
 $API->constructQuery();
 $result = $API->runQuery();
 $computedValue = 0;
-//-2, 1 for state, 1 for total
-var_dump($result);
+//-2, 1 for state, 1 for total (dont want to add total, just divide by it)
 for($i=0; $i <  count($result[1])-2; $i++) {
 	$computedValue += $result[1][$i]/$result[1][count($result[1])-2];
 }
 fillRow(195,array('... at or above 30% of household income','mgra','B25070',$computedValue,$API->getQuery()));
 
 //Row196
-fillRow(196,array('... at or above 50% of household income','mgrc','B25070'));
+$API->setTable('B25070_010E,B25070_001E');
+$API->constructQuery();
+$result = $API->runQuery();
+//Divide 50 or more by total
+$computedValue = $result[1][0]/$result[1][1];
+fillRow(196,array('... at or above 50% of household income','mgrc','B25070',$computedValue,$API->getQuery()));
 
 //Row197
 fillRow(197,array('Fair Market Rent (HUD)'));

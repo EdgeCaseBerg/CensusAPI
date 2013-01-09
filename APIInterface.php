@@ -106,16 +106,14 @@ class APIInterface{
 		
 		//Did we get something back?
 		if($result['http_code'] == '200'){
-			//We do not want the state or county included in our result because
-			//We do not want the county code if we're getting a county code.
 			$result =(json_decode($result["content"]));
+			//We do not want the county code if we're getting a county code.
 			if($this->searchByCounty){
 				foreach($result as $key => $value) {
 					//Key being each individual array
 					unset($value[count($value)-1]);
 					$result[$key] = array_values($value);
 				}
-				var_dump($result);
 			}
 			return $result;
 		}
