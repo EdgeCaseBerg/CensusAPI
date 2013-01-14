@@ -156,7 +156,11 @@ fillRow(15,array('... in renter occupied housing units','hhsr'));
 fillRow(16,array('Average family size','afas'));
 
 //Row17
-fillRow(17,array("Owner-Occupied Units","croo","B25014"));
+$API->setTable('B25014_002E');
+$API->constructQuery();
+$result = $API->runQuery();
+$computedValue = $result[1][0];
+fillRow(17,array("Owner-Occupied Units","croo","B25014",$computedValue,$API->getQuery()));
 
 //Row18
 $API->setTable('B25014I_003E,B25014A_002E,B25014A_003E,B25014H_003E,B25014C_003E,B25014D_003E,B25014E_003E,B25014F_003E,B25014G_003E');
@@ -166,58 +170,88 @@ $computedValue = 0;
 for($i=0; $i <  count($result[1])-1; $i++) {
 	$computedValue += $result[1][$i];
 }
+//Did not divide by total yet because I dont know which total to divide by. TODO
 fillRow(18,array("..with 1.01 or more people per room","crom",'B25014',$computedValue,$API->getQuery()));
 
 //Row 19
-fillRow(19,array('Renter-Occupied Units','crro','B25014'));
+$API->setTable('B25014_008E');
+$API->constructQuery();
+$result = $API->runQuery();
+$computedValue = $result[1][0];
+fillRow(19,array('Renter-Occupied Units','crro','B25014',$computedValue,$API->getQuery()));
 
 //Row 20
-fillRow(20,array("..with 1.01 or more people per room","crom",'B25014'));
+//TODO Divide by total, dont know which total I should divide by.
+$API->setTable('B25014_012E,B25014_011E,B25014_013E');
+$API->constructQuery();
+$result = $API->runQuery();
+$computedValue = 0;
+for($i=0; $i <  count($result[1])-1; $i++) {
+	$computedValue += $result[1][$i];
+}
+fillRow(20,array("..with 1.01 or more people per room","crom",'B25014',$computedValue,$API->getQuery()));
 
 //Row 21
+//Last one is total to divide everything by (query for rows 23-28)
+$API->setTable('B25038_003E,B25038_004E,B25038_005E,B25038_006E,B25038_007E,B25038_008E,B25038_001E');
+$API->constructQuery();
+$result = $API->runQuery();
+//-2 to not include the total
+for($i=0; $i <  count($result[1])-2; $i++) {
+	$result[1][$i] = $result[1][$i]/$result[1][count($result[1])-2];
+}
 fillRow(21,array('Year Householder Moved Into Unit'));
 
 //Row22
 fillRow(22,array('...For Owner-Occupied Units'));
 
 //Row23
-fillRow(23,array('   ...2005 or later','ymo5','B25038'));
+fillRow(23,array('   ...2005 or later','ymo5','B25038',$result[1][0],$API->getQuery()));
 
 //Row24
-fillRow(24,array('   ...2000 to 2004','ymo4','B25038'));
+fillRow(24,array('   ...2000 to 2004','ymo4','B25038',$result[1][1],$API->getQuery()));
 
 //Row25
-fillRow(25,array('   ...1990 to March 2000','ymo9','B25038'));
+fillRow(25,array('   ...1990 to March 2000','ymo9','B25038',$result[1][2],$API->getQuery()));
 
 //Row26
-fillRow(26,array('   ...1980 to 1989','ymo8','B25038'));
+fillRow(26,array('   ...1980 to 1989','ymo8','B25038',$result[1][3],$API->getQuery()));
 
 //Row27
-fillRow(27,array('   ...1970 to 1980','ymo7','B25038'));
+fillRow(27,array('   ...1970 to 1980','ymo7','B25038',$result[1][4],$API->getQuery()));
 
 //Row28
-fillRow(28,array('   ...1969 or Earlier','ymo6','B25038'));
+fillRow(28,array('   ...1969 or Earlier','ymo6','B25038',$result[1][5],$API->getQuery()));
 
 //Row29
+
+//Last one is total to divide everything by (query for rows 30-35)
+$API->setTable('B25038_010E,B25038_011E,B25038_012E,B25038_013E,B25038_014E,B25038_015E,B25038_009E');
+$API->constructQuery();
+$result = $API->runQuery();
+//-2 to not include the total
+for($i=0; $i <  count($result[1])-2; $i++) {
+	$result[1][$i] = $result[1][$i]/$result[1][count($result[1])-2];
+}
 fillRow(29,array('...For Renter-Occupied Units:'));
 
 //Row30
-fillRow(30,array('   ...2005 or later','ymr5','B25038'));
+fillRow(30,array('   ...2005 or later','ymr5','B25038',$result[1][0],$API->getQuery()));
 
 //Row31
-fillRow(31,array('   ...2000 to 2004','ymr4','B25038'));
+fillRow(31,array('   ...2000 to 2004','ymr4','B25038',$result[1][1],$API->getQuery()));
 
 //Row32
-fillRow(32,array('   ...1990 to March 2000','ymr9',	'B25038'));
+fillRow(32,array('   ...1990 to March 2000','ymr9',	'B25038',$result[1][2],$API->getQuery()));
 
 //Row33
-fillRow(33,array('   ...1980 to 1989','ymr8','B25038'));
+fillRow(33,array('   ...1980 to 1989','ymr8','B25038',$result[1][3],$API->getQuery()));
 
 //Row34
-fillRow(34,array( '   ...1970 to 1979','ymr7','B25038'));
+fillRow(34,array( '   ...1970 to 1979','ymr7','B25038',$result[1][4],$API->getQuery()));
 
 //Row35
-fillRow(35,array('   ...1969 or Earlier','ymr6','B25038'));
+fillRow(35,array('   ...1969 or Earlier','ymr6','B25038',$result[1][5],$API->getQuery()));
 
 //Row36
 fillRow(36,array('Median Year Householder Moved Into Unit'));
@@ -669,10 +703,18 @@ $computedValue = $result[1][0];
 fillRow(171,array('... without mortage','ocwo','B25088',$computedValue,$API->getQuery()));
 
 //Row172
-fillRow(172,array('... as percentage of household income','ochi','B25092'));
+$API->setTable('B25092_001E');
+$API->constructQuery();
+$result = $API->runQuery();
+$computedValue = $result[1][0];
+fillRow(172,array('... as percentage of household income','ochi','B25092',$computedValue,$API->getQuery()));
 
 //Row173
-fillRow(173,array('Owner-Occupied housing units','sphu','B25003'));
+$API->setTable('B25003_002E');
+$API->constructQuery();
+$result = $API->runQuery();
+$computedValue = $result[1][0];
+fillRow(173,array('Owner-Occupied housing units','sphu','B25003',$computedValue,$API->getQuery()));
 
 //Row174
 fillRow(174,array('... at or above 30% of household income','oca3','B25091'));
@@ -743,7 +785,11 @@ $computedValue = $result[1][0];
 fillRow(193,array('   ...as a percentage of household income','mgrp','B25071',$computedValue,$API->getQuery()));
 
 //Row194
-fillRow(194,array('Specified housing units with gross rent (total)','hugr','B25063'));
+$API->setTable('B25063_002E');
+$API->constructQuery();
+$result = $API->runQuery();
+$computedValue = $result[1][0];
+fillRow(194,array('Specified housing units with gross rent (total)','hugr','B25063',$computedValue,$API->getQuery()));
 
 //Row195
 $API->setTable('B25070_007E,B25070_008E,B25070_009E,B25070_010E,B25070_001E');
